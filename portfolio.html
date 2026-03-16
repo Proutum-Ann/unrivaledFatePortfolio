@@ -18,13 +18,25 @@
         />
         <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.typekit.net/jyx5rur.css">
+        <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
     </head>
 
     <body>
         <header>
             <!-- place navbar here -->
         </header>
-        <main></main>
+        <main>
+            <div id="app">
+                <h1>Portfolio</h1>
+                <p>This is the portfolio page.</p>
+
+                <div class="row">
+                    <!-- Portfolio images -->
+                    <div class="col-md-3" v-for="">
+                    </div>
+                </div>
+            </div>
+        </main>
         <footer>
             <!-- place footer here -->
         </footer>
@@ -41,5 +53,9 @@
             crossorigin="anonymous"
         ></script>
         <script src="script.js"></script>
+        <!-- Mount App -->
+        <script>
+        const mountedApp = app.mount('#app')
+        </script>
     </body>
 </html>
