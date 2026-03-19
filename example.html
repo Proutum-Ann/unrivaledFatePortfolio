@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Google Sheets Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Google Sheets Data</h1>
+        <div v-if="loading">Loading...</div>
+        <div v-else-if="error">{{ error }}</div>
+        <ul v-else>
+            <li v-for="(item, index) in items" :key="index">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+    <script src="example.js"></script>
+</body>
+</html>
