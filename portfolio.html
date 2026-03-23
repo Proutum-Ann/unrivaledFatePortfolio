@@ -30,9 +30,11 @@
                 <h1>Portfolio</h1>
                 <p>This is the portfolio page.</p>
 
-                <div class="row">
-                    <!-- Portfolio images -->
-                    <div class="col-md-3" v-for="">
+                <div class="row" v-for="(item, index) in items" :key="index">
+                    <div class="col-md-3" style="margin:0.5rem 0; min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
+                        :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }"
+                    >
+                        <!-- Image container -->
                     </div>
                 </div>
             </div>
@@ -52,10 +54,5 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
-        <script src="js/script.js"></script>
-        <!-- Mount App -->
-        <script>
-        const mountedApp = app.mount('#app')
-        </script>
-    </body>
+        <script src="script.js"></script>
 </html>

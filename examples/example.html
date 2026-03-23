@@ -12,19 +12,18 @@
         <div v-if="loading">Loading...</div>
         <div v-else-if="error">{{ error }}</div>
         <ul v-else>
-            <li v-for="(item, index) in items" :key="index">
+            <li v-for="(item, index) in items" :key="index" style="margin-bottom:1.25rem; border-bottom:1px solid #ddd; padding-bottom:1rem;">
                 <strong>Row {{ index + 1 }}</strong>
+                <div style="margin:0.5rem 0; max-width:240px;" v-if="getImageUrl(item)">
+                    <img
+                        :src="getImageUrl(item)"
+                        :alt="`Image for row ${index + 1}`"
+                        style="width:100%; height:auto; border:1px solid #ccc; display:block;"
+                    />
+                </div>
                 <ul>
                     <li v-for="(value, key) in item" :key="key">
-                        <template v-if="['image', 'img', 'picture', 'photo', 'imageUrl', 'image_url', 'thumb', 'thumbnail'].includes(key.toLowerCase()) && value">
-                            <strong>{{ key }}:</strong>
-                            <div style="max-width:240px; margin:0.4rem 0;">
-                                <img :src="value" :alt="key" style="width:100%; height:auto; border:1px solid #ccc;" />
-                            </div>
-                        </template>
-                        <template v-else>
-                            <strong>{{ key }}:</strong> {{ value }}
-                        </template>
+                        <strong>{{ key }}:</strong> {{ value }}
                     </li>
                 </ul>
             </li>

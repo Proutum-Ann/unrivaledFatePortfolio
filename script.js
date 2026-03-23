@@ -1,6 +1,3 @@
-// Replace 'YOUR_SPREADSHEET_ID' with your actual Google Sheets ID
-// To get the ID: Open your Google Sheet, the ID is in the URL between /d/ and /edit
-// Publish the sheet to the web: File > Share > Publish to web > CSV
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRLZ80ja400-a5IMHaHbOCsmL1l-OYMgxIXQfwQ3dWOdxFrRJXUK-uWTjZMyW_JS3HECkdj-POxaSuF/pub?output=csv';
 
 const { createApp } = Vue;
@@ -13,7 +10,28 @@ createApp({
             error: null
         };
     },
+    methods: {
+        // This method tries to find an image URL in the item object by checking common image-related keys
+        getImageUrl(item) {
+            const imageKeys = new Set(['image', 'img', 'picture', 'photo', 'imageurl', 'image_url', 'thumb', 'thumbnail', 'poster', 'avatar', 'profilepicture', 'profile_picture']);
+            for (const [key, value] of Object.entries(item)) {
+                if (!value || typeof value !== 'string') continue;
+                const normalizedKey = key.toLowerCase().replace(/[-_\s]/g, '');
+                if (imageKeys.has(normalizedKey)) {
+                    return value;
+                }
+            }
+            // Fallback: return first URL-like image string
+            for (const value of Object.values(item)) {
+                if (typeof value === 'string' && value.match(/https?:\/\/.*\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i)) {
+                    return value;
+                }
+            }
+            return '';
+        }
+    },
     mounted() {
+        // Fetch the CSV data from the Google Sheets URL and parse it into an array of objects for Vue to use
         fetch(sheetUrl)
             .then(response => {
                 if (!response.ok) {
