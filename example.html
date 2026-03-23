@@ -13,7 +13,20 @@
         <div v-else-if="error">{{ error }}</div>
         <ul v-else>
             <li v-for="(item, index) in items" :key="index">
-                {{ item }}
+                <strong>Row {{ index + 1 }}</strong>
+                <ul>
+                    <li v-for="(value, key) in item" :key="key">
+                        <template v-if="['image', 'img', 'picture', 'photo', 'imageUrl', 'image_url', 'thumb', 'thumbnail'].includes(key.toLowerCase()) && value">
+                            <strong>{{ key }}:</strong>
+                            <div style="max-width:240px; margin:0.4rem 0;">
+                                <img :src="value" :alt="key" style="width:100%; height:auto; border:1px solid #ccc;" />
+                            </div>
+                        </template>
+                        <template v-else>
+                            <strong>{{ key }}:</strong> {{ value }}
+                        </template>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>

@@ -30,14 +30,13 @@ createApp({
                 const headers = rows[0].split(',').map(h => h.trim());
                 const dataRows = rows.slice(1).map(row => row.split(',').map(cell => cell.trim()));
                 
-                // Assuming the sheet has columns, and we want to display each row as an object or string
-                // For simplicity, converting each row to a string representation
+                // Assuming the sheet has columns, and we want each row as an object for Vue binding
                 this.items = dataRows.map(row => {
                     let obj = {};
                     headers.forEach((header, index) => {
                         obj[header] = row[index] || '';
                     });
-                    return JSON.stringify(obj); // Or customize how to display
+                    return obj;
                 });
                 
                 this.loading = false;
