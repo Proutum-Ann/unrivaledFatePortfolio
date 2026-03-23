@@ -30,11 +30,13 @@
                 <h1>Portfolio</h1>
                 <p>This is the portfolio page.</p>
 
-                <div class="row" v-for="(item, index) in items" :key="index">
-                    <div class="col-md-3" style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
-                        :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }"
-                    >
-                        <!-- Image container -->
+                <div class="row">
+                    <div class="col-md-3"  v-for="(item, index) in items" :key="index">
+                        <div style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
+                            :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }"
+                        >
+                            <!-- Image container -->
+                        </div>
                     </div>
                 </div>
             </div>
