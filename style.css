@@ -24,3 +24,11 @@ nav {
 nav a {
     color: var(--secondary)!important;
 }
+
+nav a {
+    transition: 2s;
+}
+
+nav a:hover {
+    text-shadow: var(--secondary) 0 0 10px;
+}
