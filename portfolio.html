@@ -33,8 +33,7 @@
                 <div class="row">
                     <div class="col-md-3"  v-for="(item, index) in items" :key="index">
                         <div style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
-                            :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }"
-                        >
+                            :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }">
                             <!-- Image container -->
                         </div>
                     </div>
@@ -56,5 +55,5 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
-        <script src="script.js"></script>
+        <script src="portfolio.js"></script>
 </html>
