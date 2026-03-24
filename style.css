@@ -11,7 +11,12 @@ body {
 }
 
 /* Styling */
+main {
+    font-family: "baga", sans-serif;
+}
+
 nav {
+    font-family: "baga", sans-serif;
     background-color: var(--main);
     color: var(--secondary)
 }
