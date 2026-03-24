@@ -28,6 +28,23 @@ createApp({
                 }
             }
             return '';
+        },
+        getVideoUrl(item) {
+            const videoKeys = new Set(['video', 'vid', 'animation', 'animationurl', 'animation_url', 'gifurl', 'gif_url', 'gif', 'vfx']);
+            for (const [key, value] of Object.entries(item)) {
+                if (!value || typeof value !== 'string') continue;
+                const normalizedKey = key.toLowerCase().replace(/[-_\s]/g, '');
+                if (videoKeys.has(normalizedKey)) {
+                    return value;
+                }
+            }
+            // Fallback: return first URL-like video string
+            for (const value of Object.values(item)) {
+                if (typeof value === 'string' && value.match(/https?:\/\/.*\.(mp4|webm|gif|mov)(\?.*)?$/i)) {
+                    return value;
+                }
+            }
+            return '';
         }
     },
     mounted() {
