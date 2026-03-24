@@ -3,3 +3,19 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: "zenon-dark", sans-serif
 }
+
+/* Colors */
+body {
+    --main: #2A0C4A;
+    --secondary: #57FF41
+}
+
+/* Styling */
+nav {
+    background-color: var(--main);
+    color: var(--secondary)
+}
+
+nav a {
+    color: var(--secondary)!important;
+}
