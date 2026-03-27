@@ -11,11 +11,11 @@ main {
 /* Colors */
 body {
     --main: #2A0C4A;
-    --secondary: #57FF41
+    --secondary: #57FF41;
+    --text-light: #dbffd7
 }
 
 /* Styling */
-
 nav {
     font-family: "baga", sans-serif;
     background-color: var(--main);
@@ -37,5 +37,16 @@ nav a:hover {
 
 .studio-name {
     min-height: 200px;
-    font-size: 5em
+    font-size: 5em;
+    color: var(--text-light);
+}
+
+body {
+    background: linear-gradient(to top, var(--main), #000);
+    background-size: cover!important;
+    background-repeat: no-repeat!important
+}
+
+.unbacked {
+    color: var(--text-light);
 }
