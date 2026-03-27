@@ -16,6 +16,10 @@ body {
 }
 
 /* Styling */
+html {
+    scrollbar-width: none;
+}
+
 nav {
     font-family: "zenon-dark", sans-serif;
     background-color: var(--main);
