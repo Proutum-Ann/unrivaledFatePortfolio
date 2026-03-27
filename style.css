@@ -17,22 +17,21 @@ body {
 
 /* Styling */
 nav {
-    font-family: "baga", sans-serif;
+    font-family: "zenon-dark", sans-serif;
     background-color: var(--main);
     color: var(--secondary)
 }
 
 nav a {
     color: var(--secondary)!important;
-}
-
-nav a {
+    font-size: 1.5em!important;
     transition: .5s!important;
 }
 
 nav a:hover {
     text-shadow: var(--secondary) 0 0 10px;
     letter-spacing: 2px;
+    font-weight: bold;
 }
 
 .studio-name {
@@ -42,11 +41,24 @@ nav a:hover {
 }
 
 body {
-    background: linear-gradient(to top, var(--main), #000);
+    background: linear-gradient(to top, var(--main), var(--main), #000);
     background-size: cover!important;
     background-repeat: no-repeat!important
 }
 
 .unbacked {
     color: var(--text-light);
+}
+
+.unbacked a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: .5s;
+}
+
+.unbacked a:hover {
+    color: var(--secondary);
+    text-shadow: var(--secondary) 0 0 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
