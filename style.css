@@ -4,6 +4,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "zenon-dark", sans-serif
 }
 
+main {
+    font-family: "baga", sans-serif;
+}
+
 /* Colors */
 body {
     --main: #2A0C4A;
@@ -11,9 +15,6 @@ body {
 }
 
 /* Styling */
-main {
-    font-family: "baga", sans-serif;
-}
 
 nav {
     font-family: "baga", sans-serif;
@@ -26,9 +27,15 @@ nav a {
 }
 
 nav a {
-    transition: 2s;
+    transition: .5s!important;
 }
 
 nav a:hover {
     text-shadow: var(--secondary) 0 0 10px;
+    letter-spacing: 2px;
+}
+
+.studio-name {
+    min-height: 200px;
+    font-size: 5em
 }

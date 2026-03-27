@@ -10,6 +10,32 @@ createApp({
             error: null
         };
     },
+    computed: {
+        artItems() {
+            return this.items
+                .filter(item => {
+                    const cat = (item.category || item.type || '').toString().toLowerCase();
+                    return cat.includes('model') || cat.includes('art') || cat.includes('asset');
+                })
+                .sort((a, b) => {
+                    const aType = (a.type || '').toString().toLowerCase();
+                    const bType = (b.type || '').toString().toLowerCase();
+                    return aType.localeCompare(bType, undefined, { sensitivity: 'base' });
+                });
+        },
+        animationItems() {
+            return this.items
+                .filter(item => {
+                    const cat = (item.category || item.type || '').toString().toLowerCase();
+                    return cat.includes('animation') || cat.includes('vfx') || cat.includes('misc');
+                })
+                .sort((a, b) => {
+                    const aType = (a.type || '').toString().toLowerCase();
+                    const bType = (b.type || '').toString().toLowerCase();
+                    return aType.localeCompare(bType, undefined, { sensitivity: 'base' });
+                });
+        }
+    },
     methods: {
         // This method tries to find an image URL in the item object by checking common image-related keys
         getImageUrl(item) {
