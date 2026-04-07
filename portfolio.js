@@ -15,7 +15,7 @@ createApp({
             return this.items
                 .filter(item => {
                     const cat = (item.category || item.type || '').toString().toLowerCase();
-                    return cat.includes('model') || cat.includes('art') || cat.includes('asset');
+                    return cat.includes('model') || cat.includes('art');
                 })
                 .sort((a, b) => {
                     const aType = (a.type || '').toString().toLowerCase();
@@ -27,7 +27,7 @@ createApp({
             return this.items
                 .filter(item => {
                     const cat = (item.category || item.type || '').toString().toLowerCase();
-                    return cat.includes('animation') || cat.includes('vfx') || cat.includes('misc');
+                    return cat.includes('animation') || cat.includes('vfx');
                 })
                 .sort((a, b) => {
                     const aType = (a.type || '').toString().toLowerCase();
