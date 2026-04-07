@@ -79,6 +79,19 @@ body {
     font-weight: bold;
 }
 
+/* -Sub: Portfolio Gallery */
+.gallery-item {
+    border: var(--secondary) double 4px;
+    margin: 20px;
+    transition: .5s
+}
+
+.gallery-item:hover {
+    border: var(--secondary) double 1px;
+    box-shadow: 10px 10px 0px var(--text-light);
+    transform: scale(1.05);
+}
+
 /* Animations */
 @keyframes myAnimation {
     0% {
