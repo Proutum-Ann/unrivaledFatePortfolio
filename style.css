@@ -51,12 +51,15 @@ nav a:hover {
     min-height: 200px;
     font-size: 5em;
     color: var(--text-light);
+    animation-name: myAnimation;
+    animation-duration: 1s;
 }
 
 body {
     background: linear-gradient(to top, var(--main), var(--main), #000);
     background-size: cover!important;
-    background-repeat: no-repeat!important
+    background-repeat: no-repeat!important;
+    color: var(--text-light);
 }
 
 .unbacked {
@@ -74,4 +77,16 @@ body {
     text-shadow: var(--secondary) 0 0 10px;
     letter-spacing: 2px;
     font-weight: bold;
+}
+
+/* Animations */
+@keyframes myAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

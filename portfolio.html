@@ -33,7 +33,7 @@
                             <li class="nav-item w-25 mx-auto">
                             <a class="nav-link" href="index.html">Home</a>
                             </li>
-                            <li class="nav-item w-2 mx-auto5">
+                            <li class="nav-item w-25 mx-auto">
                             <a class="nav-link active" aria-current="page" href="#"><b>Portfolio</b></a>
                             </li>
                             <li class="nav-item w-25 mx-auto">
@@ -50,7 +50,7 @@
                 <p>This is the portfolio page.</p>
 
                 <h2>Models/Art Assets</h2>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-3"  v-for="(item, index) in items" :key="index">
                         <div style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
                             :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }">
@@ -60,7 +60,7 @@
                 </div>
 
                 <h2>Animations/VFX/Miscellaneous</h2>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-3"  v-for="(item, index) in items" :key="index">
                         <div style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
                             :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }">
