@@ -79,6 +79,18 @@ body {
     font-weight: bold;
 }
 
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* -Sub: Portfolio Gallery */
 .gallery-item {
     border: var(--secondary) double 4px;
