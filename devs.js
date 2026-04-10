@@ -1,4 +1,4 @@
-const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRLZ80ja400-a5IMHaHbOCsmL1l-OYMgxIXQfwQ3dWOdxFrRJXUK-uWTjZMyW_JS3HECkdj-POxaSuF/pub?output=csv';
+const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRLZ80ja400-a5IMHaHbOCsmL1l-OYMgxIXQfwQ3dWOdxFrRJXUK-uWTjZMyW_JS3HECkdj-POxaSuF/pub?output=csv&gid=1839330620';
 
 const { createApp } = Vue;
 
