@@ -112,6 +112,16 @@ body {
     height: 171px
 }
 
+.avatar {
+    background-repeat: no-repeat!important;
+}
+
+.big-avatar {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat!important;
+}
+
 /* Style Imports */
 .hover-underline{
   position: relative;
