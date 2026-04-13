@@ -51,16 +51,18 @@
                 <h1>Owner</h1>
 
                 <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <div class="dev-card row">
-                            <div class="avatar col-3" style="background-image: url('https://f2.toyhou.se/file/f2-toyhou-se/users/GAMERPATH1271?1'); background-size: contain;"></div>
-                            <div class="col-9">
-                                <h3 class="dev-name mb-0">John Doe</h3>
-                                <small class="dev-role mt-0">Lead Developer</small>
-                                <p class="dev-blurb">Blurb here</p>
+                    <template v-for="(item, index) in items" :key="index">
+                        <div class="col-md-4 mb-3" v-if="item.Dev || item.dev">
+                            <div class="dev-card row" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
+                                <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
+                                <div class="col-9">
+                                    <h3 class="dev-name mb-0">{{ item.Dev || item.dev || item.Name || item.name || 'Developer' }}</h3>
+                                    <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
+                                    <p class="dev-blurb">{{ item.Contacts || item.contacts || '' }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </template>
                 </div>
 
                 <h1>Developers</h1>
