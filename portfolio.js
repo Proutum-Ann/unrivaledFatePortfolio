@@ -22,18 +22,6 @@ createApp({
                     const bType = (b.type || '').toString().toLowerCase();
                     return aType.localeCompare(bType, undefined, { sensitivity: 'base' });
                 });
-        },
-        animationItems() {
-            return this.items
-                .filter(item => {
-                    const cat = (item.category || item.type || '').toString().toLowerCase();
-                    return cat.includes('animation') || cat.includes('vfx');
-                })
-                .sort((a, b) => {
-                    const aType = (a.type || '').toString().toLowerCase();
-                    const bType = (b.type || '').toString().toLowerCase();
-                    return aType.localeCompare(bType, undefined, { sensitivity: 'base' });
-                });
         }
     },
     methods: {
@@ -50,23 +38,6 @@ createApp({
             // Fallback: return first URL-like image string
             for (const value of Object.values(item)) {
                 if (typeof value === 'string' && value.match(/https?:\/\/.*\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i)) {
-                    return value;
-                }
-            }
-            return '';
-        },
-        getVideoUrl(item) {
-            const videoKeys = new Set(['video', 'vid', 'animation', 'animationurl', 'animation_url', 'gifurl', 'gif_url', 'gif', 'vfx']);
-            for (const [key, value] of Object.entries(item)) {
-                if (!value || typeof value !== 'string') continue;
-                const normalizedKey = key.toLowerCase().replace(/[-_\s]/g, '');
-                if (videoKeys.has(normalizedKey)) {
-                    return value;
-                }
-            }
-            // Fallback: return first URL-like video string
-            for (const value of Object.values(item)) {
-                if (typeof value === 'string' && value.match(/https?:\/\/.*\.(mp4|webm|gif|mov)(\?.*)?$/i)) {
                     return value;
                 }
             }

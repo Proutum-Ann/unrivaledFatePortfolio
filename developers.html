@@ -66,9 +66,18 @@
                 <h1>Developers</h1>
 
                 <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        
-                    </div>
+                    <template v-for="(item, index) in items" :key="index">
+                        <div class="col-md-4 mb-3" v-if="item.Dev || item.dev">
+                            <div class="dev-card row" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
+                                <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
+                                <div class="col-9">
+                                    <h3 class="dev-name mb-0">{{ item.Dev || item.dev || item.Name || item.name || 'Developer' }}</h3>
+                                    <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
+                                    <p class="dev-blurb">{{ item.Contacts || item.contacts || '' }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
                 </div>
 
                 <!-- Modal -->
@@ -83,7 +92,10 @@
                             <div class="row">
                                 <!-- Text Info -->
                                  <div class="col-md-5">
-                                    <div class="big-avatar col-12" style="background-image: url('https://f2.toyhou.se/file/f2-toyhou-se/users/GAMERPATH1271?1'); background-size: contain;"></div>
+                                    <div
+                                        class="big-avatar col-12"
+                                        :style="profileImage ? { backgroundImage: `url(${profileImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' } : { backgroundImage: 'url(https://f2.toyhou.se/file/f2-toyhou-se/users/GAMERPATH1271?1)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }"
+                                    ></div>
 
                                     hi guys
                                  </div>
@@ -142,6 +154,7 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
         <script src="devs.js"></script>
     </body>
 </html>
