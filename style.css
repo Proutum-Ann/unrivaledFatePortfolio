@@ -12,7 +12,9 @@ main {
 body {
     --main: #2A0C4A;
     --secondary: #57FF41;
-    --text-light: #dbffd7
+    --text-light: #dbffd7;
+    --gradient1: #8B44C2;
+    --gradient2: #5634BC
 }
 
 /* Styling */
@@ -91,6 +93,11 @@ body {
     transform: translateY(0);
 }
 
+.modal-content {
+    background: linear-gradient(to bottom, var(--gradient1), var(--gradient2));
+    border: none;
+    border-radius: 0;
+}
 /* -Sub: Portfolio Gallery */
 .gallery-item {
     border: var(--secondary) double 4px;

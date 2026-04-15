@@ -92,7 +92,7 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
+                            <h5 class="modal-title">{{ selectedItem.Dev }}</h5>
                             <button type="button" class="btn-close d-none d-md-block" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -103,7 +103,7 @@
                                          :style="{ backgroundImage: 'url(' + profileImage + ')', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', height: '400px' }"
                                     ></div>
 
-                                    <p>{{ selectedItem ? selectedItem.Contacts || selectedItem.contacts || '' : '' }}</p>
+                                    <p>{{ selectedItem.Contacts }}</p>
                                  </div>
 
                                 <!-- Gallery -->
