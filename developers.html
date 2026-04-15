@@ -62,7 +62,6 @@
                                     <!-- Hiatus Badge -->
                                     <span v-if="item.Hiatus === 'TRUE'" class="badge">Hiatus</span>
 
-                                    <p class="dev-blurb">{{ item.Contacts || item.contacts || '' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -82,8 +81,6 @@
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
                                     <!-- Hiatus Badge -->
                                     <span v-if="item.Hiatus === 'TRUE'" class="badge">Hiatus</span>
-
-                                    <p class="dev-blurb">{{ item.Contacts || item.contacts || '' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +103,7 @@
                                          :style="{ backgroundImage: 'url(' + profileImage + ')', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', height: '400px' }"
                                     ></div>
 
-                                    hi guys
+                                    <p>{{ selectedItem ? selectedItem.Contacts || selectedItem.contacts || '' : '' }}</p>
                                  </div>
 
                                 <!-- Gallery -->
@@ -121,10 +118,10 @@
                                     <!-- Carousel Gallery -->
                                          <div id="carouselExampleIndicators" class="carousel slide d-md-none">
                                             <div class="carousel-indicators">
-                                                <button type="button"  v-foreach="(item, index) in items" :key="index" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" v-for="(item, index) in items" :key="index" data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="{ active: index === 0 }" aria-current="true" :aria-label="`Slide ${index + 1}`"></button>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div class="carousel-item active" v-foreach="(item, index) in items" :key="index">
+                                                <div class="carousel-item" v-for="(item, index) in items" :key="index" :class="{ active: index === 0 }">
                                                 <img src="..." class="d-block w-100" alt="...">
                                                 </div>
                                             </div>
