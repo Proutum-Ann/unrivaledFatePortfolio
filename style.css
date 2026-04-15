@@ -113,8 +113,8 @@ body {
 
 /* -Sub: Dev Cards */
 .dev-card {
-    background-color: var(--main);
-    border: var(--secondary) double 4px;
+    background: linear-gradient(to bottom, var(--gradient1), var(--gradient2));
+    border: var(--secondary) solid 4px;
     transition: .5s;
     height: 171px
 }

@@ -45,12 +45,12 @@
         </header>
         <main>
             <div id="app">
-                <h1>Owner</h1>
+                <h1 class="text-center">Owner</h1>
 
-                <div class="row justify-content-center">
+                <div class="row justify-content-center p-2">
                     <template v-for="(item, index) in items" :key="index">
                         <div class="col-md-4 mb-3" v-if="item['Community Role'] && item['Community Role'].toLowerCase() === 'owner'">
-                            <div class="dev-card row" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer;">
+                            <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer;">
                                 <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
                                 <div class="col-9">
 
@@ -68,12 +68,12 @@
                     </template>
                 </div>
 
-                <h1>Developers</h1>
+                <h1 class="text-center">Developers</h1>
 
-                <div class="row justify-content-center">
+                <div class="row justify-content-center p-2">
                     <template v-for="(item, index) in items" :key="index">
                         <div class="col-md-4 mb-3" v-if="(item.Dev || item.dev) && (!item['Community Role'] || item['Community Role'].toLowerCase() !== 'owner')">
-                            <div class="dev-card row" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer;">
+                            <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer;">
                                 <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
                                 <div class="col-9">
                                     <h3 class="dev-name mb-0">{{ item.Dev }}</h3>
