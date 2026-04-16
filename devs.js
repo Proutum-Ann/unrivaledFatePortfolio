@@ -2,6 +2,49 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRLZ80ja400-a5
 
 const { createApp } = Vue;
 
+function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (inQuotes) {
+            if (char === '"') {
+                if (text[i + 1] === '"') {
+                    field += '"';
+                    i += 1;
+                } else {
+                    inQuotes = false;
+                }
+            } else {
+                field += char;
+            }
+        } else {
+            if (char === '"') {
+                inQuotes = true;
+            } else if (char === ',') {
+                row.push(field);
+                field = '';
+            } else if (char === '\n') {
+                row.push(field);
+                rows.push(row);
+                row = [];
+                field = '';
+            } else if (char === '\r') {
+                // ignore CR, handle LF only
+            } else {
+                field += char;
+            }
+        }
+    }
+    row.push(field);
+    if (row.length > 1 || row[0].length > 0) {
+        rows.push(row);
+    }
+    return rows;
+}
+
 createApp({
     data() {
         return {
@@ -17,6 +60,17 @@ createApp({
         },
         profileImage() {
             return this.getProfileImageUrl(this.selectedItem);
+        },
+        galleryImages() {
+            if (!this.selectedItem) return [];
+            const imagesKey = Object.keys(this.selectedItem).find(key => key.toLowerCase().replace(/[-_\s]/g, '') === 'images');
+            if (!imagesKey) return [];
+            const rawValue = this.selectedItem[imagesKey];
+            if (!rawValue || typeof rawValue !== 'string') return [];
+            return rawValue
+                .split(/[\n\r,]+/)
+                .map(url => url.trim())
+                .filter(url => url && url.match(/https?:\/\/.*\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i));
         }
     },
     methods: {
@@ -62,14 +116,13 @@ createApp({
                 return response.text();
             })
             .then(csvText => {
-                // Simple CSV parser (for basic CSV without quotes/commas in fields)
-                const rows = csvText.trim().split('\n');
+                const rows = parseCsv(csvText);
                 if (rows.length < 2) {
                     throw new Error('No data found in the sheet');
                 }
-                const headers = rows[0].split(',').map(h => h.trim());
-                const dataRows = rows.slice(1).map(row => row.split(',').map(cell => cell.trim()));
-                
+                const headers = rows[0].map(h => h.trim());
+                const dataRows = rows.slice(1).filter(row => row.some(cell => cell.trim() !== ''));
+
                 // Assuming the sheet has columns, and we want each row as an object for Vue binding
                 this.items = dataRows.map(row => {
                     let obj = {};
@@ -86,7 +139,7 @@ createApp({
                     });
                     return obj;
                 });
-                
+
                 this.loading = false;
             })
             .catch(err => {

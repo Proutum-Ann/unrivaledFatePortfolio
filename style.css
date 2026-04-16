@@ -127,6 +127,7 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat!important;
+    height: 200px;
 }
 
 /* Style Imports */

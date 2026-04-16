@@ -102,30 +102,35 @@
                             <div class="row">
                                 <!-- Text Info -->
                                  <div class="col-md-5">
-                                    <div class="big-avatar col-12"
-                                         :style="{ backgroundImage: 'url(' + profileImage + ')', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', height: '400px' }"
-                                    ></div>
-
-                                    <p>{{ selectedItem.Contacts }}</p>
+                                    <div class="row">
+                                        <div class="big-avatar col-6 col-md-12"
+                                            :style="{ backgroundImage: 'url(' + profileImage + ')', backgroundRepeat: 'no-repeat'}"
+                                        ></div>
+                                        <div class="col-6 col-md-12">
+                                            <p>{{ selectedItem.Contacts }}</p>
+                                        </div>
+                                    </div>
                                  </div>
 
                                 <!-- Gallery -->
                                  <div class="col-md-7">
 
                                     <!-- Static Gallery -->
-                                    <div class="row d-none d-md-block">
-                                        <!-- REMINDER, STILL NEEDS HTML! -->
-
+                                    <div class="row g-3 d-none d-md-flex" v-if="galleryImages.length">
+                                        <div class="col-6" v-for="(image, index) in galleryImages" :key="index">
+                                            <img :src="image" class="d-block w-100" :alt="`Gallery image ${index + 1}`">
+                                        </div>
                                     </div>
+                                    <div v-else class="text-muted">No gallery images available for this developer.</div>
 
                                     <!-- Carousel Gallery -->
-                                         <div id="carouselExampleIndicators" class="carousel slide d-md-none">
+                                         <div id="carouselExampleIndicators" class="carousel slide d-md-none" v-if="galleryImages.length">
                                             <div class="carousel-indicators">
-                                                <button type="button" v-for="(item, index) in items" :key="index" data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="{ active: index === 0 }" aria-current="true" :aria-label="`Slide ${index + 1}`"></button>
+                                                <button type="button" v-for="(image, index) in galleryImages" :key="index" data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="{ active: index === 0 }" aria-current="true" :aria-label="`Slide ${index + 1}`"></button>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div class="carousel-item" v-for="(item, index) in items" :key="index" :class="{ active: index === 0 }">
-                                                <img src="..." class="d-block w-100" alt="...">
+                                                <div class="carousel-item" v-for="(image, index) in galleryImages" :key="index" :class="{ active: index === 0 }">
+                                                <img :src="image" class="d-block w-100" :alt="`Gallery image ${index + 1}`">
                                                 </div>
                                             </div>
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
