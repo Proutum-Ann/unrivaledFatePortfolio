@@ -98,6 +98,13 @@ body {
     border: none;
     border-radius: 0;
 }
+
+.hiatus-badge {
+    background-color: var(--secondary)!important;
+    color: var(--main)!important;
+    margin-left: 10px;
+}
+
 /* -Sub: Portfolio Gallery */
 .gallery-item {
     border: var(--secondary) double 4px;

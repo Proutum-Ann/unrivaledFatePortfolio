@@ -60,7 +60,7 @@
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
 
                                     <!-- Hiatus Badge -->
-                                    <span v-if="item.Hiatus === 'TRUE'" class="badge">Hiatus</span>
+                                    <span v-if="item.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
 
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
                                     <!-- Hiatus Badge -->
-                                    <span v-if="item.Hiatus === 'TRUE'" class="badge">Hiatus</span>
+                                    <span v-if="item.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="modal-header">
                             <h5 class="modal-title">{{ selectedItem.Dev }}</h5> 
                                 <!-- Hiatus Badge -->
-                                <span v-if="selectedItem.Hiatus === 'TRUE'" class="badge">Hiatus</span>
+                                <span v-if="selectedItem.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
                                 <!-- Close Button -->
                             <button type="button" class="btn-close d-none d-md-block" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
