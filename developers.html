@@ -72,7 +72,26 @@
 
                 <div class="row justify-content-center p-2">
                     <template v-for="(item, index) in items" :key="index">
-                        <div class="col-md-4 mb-3" v-if="item.Dev && item['Community Role'].toLowerCase() !== 'owner'">
+                        <div class="col-md-4 mb-3" v-if="item.Dev && item['Community Role'].toLowerCase() !== 'owner' && item.Hiatus === 'FALSE'">
+                            <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer; height: 100px;">
+                                <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
+                                <div class="col-9">
+                                    <h3 class="dev-name mb-0">{{ item.Dev }}</h3>
+                                    
+                                    <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
+                                    <!-- Hiatus Badge -->
+                                    <span v-if="item.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <h1 class="text-center">Hiatus</h1>
+
+                <div class="row justify-content-center p-2">
+                    <template v-for="(item, index) in items" :key="index">
+                        <div class="col-md-4 mb-3" v-if="item.Dev && item['Community Role'].toLowerCase() !== 'owner' && item.Hiatus === 'TRUE'">
                             <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer; height: 100px;">
                                 <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
                                 <div class="col-9">
