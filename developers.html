@@ -111,9 +111,7 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">{{ selectedItem.Dev }}</h5> 
-                                <!-- Hiatus Badge -->
-                                <span v-if="selectedItem.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
+                            <h1 class="modal-title">{{ selectedItem.Dev }}</h1>
                                 <!-- Close Button -->
                             <button type="button" class="btn-close d-none d-md-block" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -126,6 +124,7 @@
                                             :style="{ backgroundImage: 'url(' + profileImage + ')', backgroundRepeat: 'no-repeat'}"
                                         ></div>
                                         <div class="col-6 col-md-12">
+                                            <h2><u>Contacts</u></h2>
                                             <p>{{ selectedItem.Contacts }}</p>
                                         </div>
                                     </div>
