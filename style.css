@@ -118,6 +118,10 @@ body {
     transform: scale(1.05);
 }
 
+.dev-gallery-item {
+    min-height: 100px;
+}
+
 /* -Sub: Dev Cards */
 .dev-card {
     background: linear-gradient(to bottom, var(--gradient1), var(--gradient2));

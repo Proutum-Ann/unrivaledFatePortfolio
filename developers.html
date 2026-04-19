@@ -133,8 +133,7 @@
 
                                     <!-- Static Gallery -->
                                     <div class="row g-3 d-none d-md-flex" v-if="galleryImages.length">
-                                        <div class="col-6 mx-auto" v-for="(image, index) in galleryImages" :key="index">
-                                            <img :src="image" class="d-block w-100" :alt="`Gallery image ${index}`">
+                                        <div class="col-6 mx-auto dev-gallery-item" v-for="(image, index) in galleryImages" :key="index" :style="{ backgroundImage: 'url(' + image + ')', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }">
                                         </div>
                                     </div>
                                     <div v-else class="text-muted">No gallery images available for this developer.</div>
