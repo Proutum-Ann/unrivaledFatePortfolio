@@ -79,8 +79,6 @@
                                     <h3 class="dev-name mb-0">{{ item.Dev }}</h3>
                                     
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
-                                    <!-- Hiatus Badge -->
-                                    <span v-if="item.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +97,7 @@
                                     
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
                                     <!-- Hiatus Badge -->
-                                    <span v-if="item.Hiatus === 'TRUE'" class="badge hiatus-badge">Hiatus</span>
+                                    <span class="badge hiatus-badge">Hiatus</span>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +129,7 @@
                                  </div>
 
                                 <!-- Gallery -->
-                                 <div class="col-md-7">
+                                 <div class="col-md-7" style="max-height: 350px; overflow-y: auto;">
 
                                     <!-- Static Gallery -->
                                     <div class="row g-3 d-none d-md-flex" v-if="galleryImages.length">
