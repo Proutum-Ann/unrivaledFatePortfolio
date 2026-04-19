@@ -11,17 +11,17 @@ createApp({
         };
     },
     computed: {
-        artItems() {
-            return this.items
-                .filter(item => {
-                    const cat = (item.category || item.type || '').toString().toLowerCase();
-                    return cat.includes('model') || cat.includes('art');
-                })
-                .sort((a, b) => {
-                    const aType = (a.type || '').toString().toLowerCase();
-                    const bType = (b.type || '').toString().toLowerCase();
-                    return aType.localeCompare(bType, undefined, { sensitivity: 'base' });
-                });
+        artModels() {
+            return this.items.filter(item => {
+                const type = (item.Type || item.type || '').toString().toLowerCase();
+                return type.includes('model') || type.includes('art');
+            });
+        },
+        animationsVfx() {
+            return this.items.filter(item => {
+                const type = (item.Type || item.type || '').toString().toLowerCase();
+                return type.includes('vfx') || type.includes('animation');
+            });
         }
     },
     methods: {
