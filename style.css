@@ -141,6 +141,15 @@ body {
     height: 200px;
 }
 
+.static-gallery {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) transparent;
+}
+
+.text-muted {
+    color: var(--secondary)!important;
+}
+
 /* Style Imports */
 .hover-underline{
   position: relative;

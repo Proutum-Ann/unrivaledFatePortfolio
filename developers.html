@@ -51,8 +51,8 @@
                     <template v-for="(item, index) in items" :key="index">
                         <div class="col-md-4 mb-3" v-if="item['Community Role'].toLowerCase() === 'owner'">
                             <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer; height: 100px;">
-                                <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
-                                <div class="col-9">
+                                <div class="avatar col-2 col-md-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain', backgroundPosition: 'center' }"></div>
+                                <div class="col-10 col-md-9">
 
                                     <!-- Username -->
                                     <h3 class="dev-name mb-0">{{ item.Dev }}</h3>
@@ -74,8 +74,8 @@
                     <template v-for="(item, index) in items" :key="index">
                         <div class="col-md-4 mb-3" v-if="item.Dev && item['Community Role'].toLowerCase() !== 'owner' && item.Hiatus === 'FALSE'">
                             <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer; height: 100px;">
-                                <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
-                                <div class="col-9">
+                                <div class="avatar col-2 col-md-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain', backgroundPosition: 'center' }"></div>
+                                <div class="col-10 col-md-9">
                                     <h3 class="dev-name mb-0">{{ item.Dev }}</h3>
                                     
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
@@ -91,8 +91,8 @@
                     <template v-for="(item, index) in items" :key="index">
                         <div class="col-md-4 mb-3" v-if="item.Dev && item['Community Role'].toLowerCase() !== 'owner' && item.Hiatus === 'TRUE'">
                             <div class="dev-card row m-2" @click="selectDeveloper(index)" data-bs-toggle="modal" data-bs-target="#devModal" style="cursor: pointer; height: 100px;">
-                                <div class="avatar col-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain' }"></div>
-                                <div class="col-9">
+                                <div class="avatar col-2 col-md-3" :style="{ backgroundImage: 'url(' + getProfileImageUrl(item) + ')', backgroundSize: 'contain', backgroundPosition: 'center' }"></div>
+                                <div class="col-10 col-md-9">
                                     <h3 class="dev-name mb-0">{{ item.Dev }}</h3>
                                     
                                     <small class="dev-role mt-0">{{ item.Role || item.role || 'Role' }}</small>
@@ -129,7 +129,7 @@
                                  </div>
 
                                 <!-- Gallery -->
-                                 <div class="col-md-7" style="max-height: 350px; overflow-y: auto;">
+                                 <div class="col-md-7 static-gallery" style="max-height: 350px; overflow-y: auto;">
 
                                     <!-- Static Gallery -->
                                     <div class="row g-3 d-none d-md-flex" v-if="galleryImages.length">
@@ -139,7 +139,7 @@
                                     <div v-else class="text-muted">No gallery images available for this developer.</div>
 
                                     <!-- Carousel Gallery -->
-                                         <div id="carouselExampleIndicators" class="carousel slide d-md-none" v-if="galleryImages.length">
+                                         <div id="carouselExampleIndicators" class="carousel slide d-md-none mt-2 mt-md-0" v-if="galleryImages.length">
                                             <div class="carousel-indicators">
                                                 <button type="button" v-for="(image, index) in galleryImages" :key="index" data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="{ active: index === 0 }" aria-current="true" :aria-label="`Slide ${index + 1}`"></button>
                                             </div>
