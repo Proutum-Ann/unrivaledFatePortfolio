@@ -122,6 +122,10 @@ body {
     min-height: 100px;
 }
 
+.general-gallery-item {
+    height: 200px;
+}
+
 /* -Sub: Dev Cards */
 .dev-card {
     background: linear-gradient(to bottom, var(--gradient1), var(--gradient2));
