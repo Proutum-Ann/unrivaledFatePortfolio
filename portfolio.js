@@ -11,6 +11,7 @@ createApp({
         };
     },
     computed: {
+        // Meant to be used to filter items, idk if these are still being used after edits
         artModels() {
             return this.items.filter(item => {
                 const type = (item.Type || item.type || '').toString().toLowerCase();

@@ -53,7 +53,7 @@
                 <!-- Static Models and Art -->
                 <h2>Models/Art Assets</h2>
                 <div class="row justify-content-center">
-                    <div class="col-md-3"  v-for="(item, index) in artModels" :key="index">
+                    <div class="col-md-4"  v-for="(item, index) in artModels" :key="index">
                         <div class="gallery-item" style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
                             :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }">
                             <!-- Image container -->
@@ -64,7 +64,7 @@
                 <!-- Animations and VFX-->
                 <h2>Animations/VFX</h2>
                 <div class="row justify-content-center">
-                    <div class="col-md-3"  v-for="(item, index) in animationsVfx" :key="index">
+                    <div class="col-md-4"  v-for="(item, index) in animationsVfx" :key="index">
                         <div class="gallery-item" style="min-height:240px; background-size: contain; background-position: center; background-repeat: no-repeat;" v-if="getImageUrl(item)"
                             :style="{ backgroundImage: 'url(' + getImageUrl(item) + ')' }">
                             <!-- Image container -->
