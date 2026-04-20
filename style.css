@@ -106,13 +106,14 @@ body {
 }
 
 /* -Sub: Portfolio Gallery */
-.gallery-item {
+.gallery-item, .dev-gallery-item {
     border: var(--secondary) double 4px;
     margin: 20px;
+    background-color: var(--main);
     transition: .5s
 }
 
-.gallery-item:hover {
+.gallery-item:hover, .dev-gallery-item:hover {
     border: var(--secondary) double 1px;
     box-shadow: 10px 10px 0px var(--text-light);
     transform: scale(1.05);
@@ -120,10 +121,6 @@ body {
 
 .dev-gallery-item {
     min-height: 100px;
-}
-
-.general-gallery-item {
-    height: 200px;
 }
 
 /* -Sub: Dev Cards */
@@ -148,6 +145,7 @@ body {
 .static-gallery {
     scrollbar-width: thin;
     scrollbar-color: var(--secondary) transparent;
+    overflow-x: hidden;
 }
 
 .text-muted {
